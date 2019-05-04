@@ -36,13 +36,17 @@ export function _getImageTag (props, gutter = 0) {
 		}
 	};
 
-	return (
-		<Injector
-		  defaultComponent={Image}
-		  defaultProps={imageProps}
-		  injectant={props.customImageComponent}
-		  injectantProps={props.customImageProps} />
-	)
+	const imageInject = <Injector
+	  defaultComponent={Image}
+	  defaultProps={imageProps}
+	  injectant={props.customImageComponent}
+	  injectantProps={props.customImageProps} />;
+
+	const wrapper = (props.renderWrapper) ? 
+		props.renderWrapper(props, imageInject) :
+		imageInject;
+
+	return wrapper;
 }
 
 // _getTouchableUnit :: Image, Number -> TouchableTag
