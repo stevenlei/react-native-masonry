@@ -9,7 +9,7 @@ export default function Brick (props) {
 	const header = (props.renderHeader) ? props.renderHeader(props.data) : null;
 
 	return (
-		<View key={props.brickKey}>
+		<View key={props.brickKey} style={{ marginTop: props.gutter }}>
 		  {header}
 		  {image}
 		  {footer}
@@ -18,7 +18,7 @@ export default function Brick (props) {
 }
 
 // _getImageTag :: Image, Gutter -> ImageTag
-export function _getImageTag (props, gutter = 0) {
+export function _getImageTag (props) {
 	const imageProps = {
 		key: props.uri,
 		source: {
