@@ -31,7 +31,6 @@ export function _getImageTag (props, gutter = 0) {
 		style: {
 			width: props.width,
 			height: props.height,
-			marginTop: gutter,
 			...props.imageContainerStyle,
 		}
 	};
@@ -50,13 +49,13 @@ export function _getImageTag (props, gutter = 0) {
 }
 
 // _getTouchableUnit :: Image, Number -> TouchableTag
-export function _getTouchableUnit (image, gutter = 0) {
+export function _getTouchableUnit (image) {
 	return (
 		<TouchableHighlight
           key={image.uri}
           onPress={() => image.onPress(image.data)}>
           <View>
-            { _getImageTag(image, gutter) }
+            { _getImageTag(image) }
           </View>
 		</TouchableHighlight>
 	);
