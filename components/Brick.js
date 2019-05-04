@@ -4,9 +4,9 @@ import Injector from 'react-native-injectable-component';
 
 export default function Brick (props) {
 	// Avoid margins for first element
-	const image = (props.onPress) ? _getTouchableUnit(props, props.gutter) : _getImageTag(props, props.gutter);
-	const footer = (props.renderFooter) ? props.renderFooter(props.data) : null;
-	const header = (props.renderHeader) ? props.renderHeader(props.data) : null;
+	const image = (props.onPress) ? _getTouchableUnit(props) : _getImageTag(props);
+	const footer = (props.renderFooter) ? props.renderFooter(props) : null;
+	const header = (props.renderHeader) ? props.renderHeader(props) : null;
 
 	return (
 		<View key={props.brickKey} style={{ marginTop: props.gutter }}>
